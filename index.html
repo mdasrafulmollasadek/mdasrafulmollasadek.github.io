@@ -4,89 +4,128 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>MD Asraful Molla Sadek</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
   <style>
     body {
       font-family: Arial, sans-serif;
       text-align: center;
-      background-color: #fdfdfd;
       padding: 40px;
     }
-    img {
-      width: 200px;
-      height: 200px;
+    .profile-pic {
+      width: 180px;
+      height: 180px;
       border-radius: 50%;
-      border: 4px solid red;
-    }
-    h1 {
-      font-size: 28px;
-      margin-top: 20px;
-    }
-    p {
-      font-style: italic;
-      color: #555;
+      object-fit: cover;
       margin-bottom: 20px;
+      border: 3px solid #e60000;
     }
-    .views {
-      font-size: 20px;
-      font-weight: bold;
-      margin-bottom: 20px;
+    .bio {
+      margin-bottom: 30px;
     }
-    .icons-row {
+    .social-icons {
       display: flex;
       justify-content: center;
-      gap: 20px;
-      margin: 20px 0;
+      gap: 27px;
       flex-wrap: wrap;
+      font-size: 30px;
+      margin-bottom: 30px;
     }
-    .icons-row a {
+    .social-icons a {
+      color: #333;
       text-decoration: none;
-      color: black;
-      font-size: 36px;
+      transition: transform 0.3s, color 0.3s;
+    }
+    .social-icons a:hover {
+      transform: scale(1.2);
+      color: #0077ff;
+    }
+    .follow-btn {
+      background-color: #0077ff;
+      color: white;
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    .follow-btn:hover {
+      background-color: #005fcc;
+    }
+  </style>
+</head>
+<body>
+  <img src="profile.jpg" alt="Profile Picture" class="profile-pic" />
+  <div class="bio">
+    <h1>MD Asraful Molla Sadek</h1>
+    <p><i>I am a student</i></p>  
+  </div>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>View Counter</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 100px;
+    }
+    .views {
+      font-size: 24px;
+      font-weight: bold;
     }
   </style>
 </head>
 <body>
 
-  <img src="your-image.jpg" alt="Profile Picture" />
-  <h1>MD Asraful Molla Sadek</h1>
-  <p>I am a student</p>
-
   <div class="views">
-    Views: <span id="viewCount">Loading...</span>
-  </div>
-
-  <!-- First Row -->
-  <div class="icons-row">
-    <a href="https://facebook.com/mdasrafulmollasadek" target="_blank"><i class="fab fa-facebook"></i></a>
-    <a href="mailto:sadekmolla299@gmail.com" target="_blank"><i class="fas fa-at"></i></a>
-    <a href="https://instagram.com/mdasrafulmollasadek" target="_blank"><i class="fab fa-instagram"></i></a>
-    <a href="https://x.com/mdasrafulmollaS" target="_blank"><i class="fab fa-x-twitter"></i></a>
-    <a href="#"><i class="fab fa-pinterest"></i></a>
-  </div>
-
-  <!-- Second Row -->
-  <div class="icons-row">
-    <a href="#"><i class="fas fa-bars"></i></a>
-    <a href="#"><i class="fab fa-skype"></i></a>
-    <a href="mailto:sadekmolla299@gmail.com"><i class="fas fa-envelope"></i></a>
-    <a href="#"><i class="fab fa-telegram"></i></a>
-    <a href="#"><i class="fab fa-linkedin"></i></a>
+    Views: <span id="viewCount">0</span>
   </div>
 
   <script>
-    // CountAPI View Counter
-    fetch('https://api.countapi.xyz/update/asrafulmdsadek/viewcount/?amount=1')
-      .then(res => res.json())
-      .then(data => {
-        document.getElementById('viewCount').textContent = data.value;
-      })
-      .catch(err => {
-        document.getElementById('viewCount').textContent = "N/A";
-        console.error("View count error:", err);
-      });
+    // Local Storage View Counter
+    const viewKey = 'page_view_count';
+
+    let count = localStorage.getItem(viewKey);
+    if (!count) {
+      count = 1;
+    } else {
+      count = parseInt(count) + 1;
+    }
+    localStorage.setItem(viewKey, count);
+    document.getElementById('viewCount').textContent = count;
   </script>
 
+  <br><br>
+  <!-- Social Media Buttons Row -->
+  <div class="social-icons">
+  <!-- First Row -->
+  <div class="row">
+    <a href="https://facebook.com/blank" style="margin-right: 15px;" target="_blank" title="Facebook"><i class="fab fa-facebook fa-2x" style="color: black;"></i></a>
+    
+    <a href="https://threads.net/@mdasrafulmollasadek" style="margin-right: 15px;" target="_blank" title="Threads"><i class="fas fa-at fa-2x" style="color: black;"></i></a>
+    
+    <a href="https://instagram.com/mdasrafulmollasadek" style="margin-right: 20px;" target="_blank" title="Instagram"><i class="fab fa-instagram fa-2x" style="color: black;"></i></a>
+    
+    <a href="https://x.com/mdasrafulmollaS" style="margin-right: 15px;" target="_blank" title="X"><i class="fab fa-x fa-2x" style="color: black;"></i></a>
+    
+    <a href="https://pin.it/5hZLpJOTz" style="margin-right: 15px;" target="_blank" title="Pinterset"><i class="fab fa-pinterest fa-2x" style="color: black;"></i></a>
+    
+ </div>
+    
+  <!-- Second Row -->
+  <div class="row" style="margin-top: 15px;">
+   <a href="https://hikmah.net?referrer=mdasrafulmollasadek" style="margin-right: 15px;" target="_blank" title="Hikma"><i class="fas fa-book fa-2x" style="color: black;"></i></a>
+    
+     <a href="https://join.skype.com/invite/wm5ph2OAQ700" style="margin-right: 15px;" target="_blank" title="Skype"><i class="fab fa-skype fa-2x" style="color: black;"></i></a>
+    
+    <a href="mailto:mdasrafulmollasadekgmail.com" style="margin-right: 15px;" title="Email"><i class="fas fa-envelope fa-2x" style="color: black;"></i></a>
+    
+    <a href="https://t.me/mdasrafulmollasadek" target="_blank" style="margin-right: 15px;" title="Telegram"><i class="fab fa-telegram fa-2x" style="color: black;"></i></a>
+    
+    <a href="blank" style="margin-right: 15px;" target="_blank" title="LinkedIn"><i class="fab fa-linkedin fa-2x" style="color: black;"></i></a>
+  </div>
+</div>
+  
 </body>
 </html>
 
