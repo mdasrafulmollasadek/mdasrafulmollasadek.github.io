@@ -58,18 +58,51 @@
   <img src="profile.jpg" alt="Profile Picture" class="profile-pic" />
   <div class="bio">
     <h1>MD Asraful Molla Sadek</h1>
-    <p><i>I am a student</i></p>
-    
-    <button class="follow-btn" id="followBtn" onclick="incrementFollowers()">Follow</button>
+    <p><i>I am a student</i></p>  
+  </div>
+
+ <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>View Counter</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 100px;
+    }
+    .views {
+      font-size: 24px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .views img {
+      width: 28px;
+      height: 28px;
+    }
+  </style>
+
+<body>
+
+  <div class="views">
+    <img src="https://img.icons8.com/ios-filled/50/visible.png" alt="Views">
+    <span>Views: <span id="viewCount">0</span></span>
+  </div>
 
   <script>
-    let count = 0;
-    function incrementFollowers() {
-      count++;
-      document.getElementById('followBtn').innerText = "Follow (" + count + ")";
+    // Local Storage View Counter
+    const viewKey = 'page_view_count';
+
+    let count = localStorage.getItem(viewKey);
+    if (!count) {
+      count = 1;
+    } else {
+      count = parseInt(count) + 1;
     }
-  </script>  
-  </div>
+    localStorage.setItem(viewKey, count);
+    document.getElementById('viewCount').textContent = count;
+  </script>
+
+  
   <!-- Social Media Buttons Row -->
   <div class="social-icons">
   <!-- First Row -->
