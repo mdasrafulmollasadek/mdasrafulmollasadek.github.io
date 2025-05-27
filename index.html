@@ -7,17 +7,38 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
   <style>
     body {
-      font-family: Arial, sans-serif;
-      text-align: center;
-      padding: 40px;
+  margin: 0;
+  padding: 0;
+  background-image: url("<div class="separator" style="clear: both;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh4_C_CvMp8QDRIZcHWFY4OAG5F7ctwZw9amghmSw9BLfDgqc4NAgs1cUx9zMO0c6HMlruaORriWZLQgJI_Jmd0jNNa16xPTaz5gi0hFUTkj6R83hfpxLNeWshT9-lzpl3Sops4sXFvh5iwTb_N4-GyWGSKUPTwwf81rrR771NkPktZIi1lEXTxrAtbbRjf/s1600/1693932359418-01.jpeg.jpg" style="display: block; padding: 1em 0; text-align: center; "><img alt="" border="0" data-original-height="3072" data-original-width="2984" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh4_C_CvMp8QDRIZcHWFY4OAG5F7ctwZw9amghmSw9BLfDgqc4NAgs1cUx9zMO0c6HMlruaORriWZLQgJI_Jmd0jNNa16xPTaz5gi0hFUTkj6R83hfpxLNeWshT9-lzpl3Sops4sXFvh5iwTb_N4-GyWGSKUPTwwf81rrR771NkPktZIi1lEXTxrAtbbRjf/s1600/1693932359418-01.jpeg.jpg"/></a></div>");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  font-family: Arial, sans-serif;
+  color: black;
+  text-align: center;
+  position: relative;
+  min-height: 100vh;
     }
-    .profile-pic {
-      width: 180px;
-      height: 180px;
-      border-radius: 50%;
-      object-fit: cover;
-      margin-bottom: 20px;
-      border: 3px solid #e60000;
+    .profile-img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 3px solid red;
+    }
+    body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.6);
+  z-index: 0;
+}
+    .content {
+  position: relative;
+  z-index: 1;
+  padding: 50px;
     }
     .bio {
       margin-bottom: 30px;
@@ -90,4 +111,3 @@
   
 </body>
 </html>
-
