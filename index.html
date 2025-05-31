@@ -4,7 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>MD Asraful Molla</title>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
     * {
       margin: 0;
@@ -12,159 +13,137 @@
       box-sizing: border-box;
     }
 
-    body, html {
-      height: 100%;
+    body {
       font-family: Arial, sans-serif;
+      text-align: right;
+      padding: 40px;
       color: white;
-    }
-    .video-bg {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      overflow: hidden;
-      z-index: -1;
-    }
-
-    .video-bg video {
-      min-width: 100%;
-      min-height: 100%;
-      object-fit: cover;
-    }
-
-    .overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(40, 40, 40, 0.4);
+      position: relative;
       z-index: 0;
     }
 
-    .container {
-      position: relative;
-      z-index: 1;
-      padding: 20px;
-      max-width: 1000px;
-      margin: auto;
+  
+    #bg-video {
+      position: fixed;
+      top: 0;
+      left: 0;
+      min-width: 100%;
+      min-height: 100%;
+      object-fit: cover;
+      z-index: -2;
+      filter: brightness(0.4);
     }
 
-    .profile-section {
-      display: flex;
-      flex-direction: row-reverse;
-      align-items: center;
-      flex-wrap: wrap;
-      margin-bottom: 30px;
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 110%;
+      background-color: rgba(40, 40, 40, 0.2);
+      z-index: -1;
     }
 
     .profile-pic {
-      width: 120px;
-      height: 120px;
+      width: 100px;
+      height: 100px;
       border-radius: 50%;
       object-fit: cover;
       border: 2px solid yellow;
+      float: left;
       margin: 10px;
     }
 
     .bio {
-      flex: 1;
-      text-align: left;
-      margin: 10px;
+      margin-bottom: 170px;
     }
 
     .bio h2 {
-      margin-bottom: 10px;
-      color: white;
+      color: black;
     }
 
-    .bio p {
-      color: #ccc;
+    .content {
+      color: black;
+      position: relative;
+      z-index: 1;
+      margin: 20px;
+      text-align: right;
     }
 
     .social-icons {
       display: flex;
-      flex-wrap: wrap;
       justify-content: center;
-      gap: 15px;
-      margin-top: 60px;
+      gap: 8px;
+      flex-wrap: wrap;
+      font-size: 18px;
+      margin-bottom: 37px;
     }
 
     .social-icons a {
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      background-color: rgba(255, 255, 255, 0.1);
-      display: flex;
-      align-items: center;
-      justify-content: center;
       color: white;
-      font-size: 20px;
       text-decoration: none;
-      transition: all 0.3s ease;
+      transition: transform 0.3s, color 0.3s;
     }
 
     .social-icons a:hover {
-      background-color: rgba(255, 255, 255, 0.3);
       transform: scale(1.2);
-      color: yellow;
+      color: green;
     }
 
-    @media (max-width: 768px) {
-      .profile-section {
-        flex-direction: column-reverse;
-        align-items: center;
-        text-align: center;
-      }
+    .follow-btn {
+      background-color: #0077ff;
+      color: white;
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
 
-      .bio {
-        text-align: center;
-      }
+    .follow-btn:hover {
+      background-color: #005fcc;
     }
   </style>
 </head>
 <body>
 
-  <!-- Background Video -->
-  <div class="video-bg">
-    <video autoplay loop muted playsinline>
-      <source src="background-video.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
-    <div class="overlay"></div>
+  <!-- ✅ Background Video -->
+  <video autoplay muted loop playsinline id="bg-video">
+    <source src="your-video.mp4.mp4" type="video/mp4">
+
+  </video>
+
+  <img src="profile.jpg" alt="Profile Picture" class="profile-pic" />
+  <div class="bio">
+    <h2>MD Asraful Molla Sadek</h2>
+    <p style="color: #5b5353;">
+      <i><br><b>Sadek</b> use the <br> following social <br> media platforms,<br>except <strike>Facebook</strike>.</i>
+    </p>  
   </div>
+  <br>
 
-  <div class="container">
-
-    <!-- Profile and Bio Section -->
-    <div class="profile-section">
-      <img src="profile.jpg" alt="Profile Picture" class="profile-pic">
-      <div class="bio">
-        <h2>MD Asraful Molla Sadek</h2>
-        <p><i><b>Sadek</b> uses the following social media platforms, except <strike>Facebook</strike>.</i></p>
-      </div>
+  <div class="social-icons">
+    <!-- First Row -->
+    <div class="row" style="margin-top: 40px;">
+      <a href="https://t.me/mdasrafulmollasadek" target="_blank" style="margin-right: 14px;" title="Telegram"><i class="fab fa-telegram fa-2x"></i></a>
+      <a href="https://instagram.com/mdasrafulmollasadek" style="margin-right: 14px;" target="_blank" title="Instagram"><i class="fab fa-instagram fa-2x"></i></a>
+      <a href="blank" style="margin-right: 14px;" target="_blank" title="Facebook"><i class="fab fa-facebook-f fa-2x" style="color: yellow;"></i></a>
+      <a href="https://x.com/mdasrafulmollaS" style="margin-right: 14px;" target="_blank" title="X (Twitter)"><i class="fab fa-x-twitter fa-2x"></i></a>
+      <a href="https://pin.it/5hZLpJOTz" style="margin-right: 14px;" target="_blank" title="Pinterest"><i class="fab fa-pinterest fa-2x"></i></a>
     </div>
 
-    <!-- Social Icons (2 Rows) -->
-    <div class="social-icons">
-      <!-- Row 1 -->
-      <a href="https://t.me/mdasrafulmollasadek" target="_blank" title="Telegram"><i class="fab fa-telegram"></i></a>
-      <a href="https://instagram.com/mdasrafulmollasadek" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
-      <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
-      <a href="https://x.com/mdasrafulmollaS" target="_blank" title="X (Twitter)"><i class="fab fa-x-twitter"></i></a>
-      <a href="https://pin.it/5hZLpJOTz" target="_blank" title="Pinterest"><i class="fab fa-pinterest"></i></a>
-
-      <!-- Row 2 -->
-      <a href="https://www.linkedin.com/in/mdasrafulmollasadek" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-      <a href="https://threads.net/@mdasrafulmollasadek" target="_blank" title="Threads"><i class="fas fa-at"></i></a>
-      <a href="https://chessarena.com/profile/514976" target="_blank" title="Chess"><i class="fas fa-chess-queen"></i></a>
-      <a href="https://join.skype.com/invite/wm5ph2OAQ700" target="_blank" title="Skype"><i class="fab fa-skype"></i></a>
-      <a href="mailto:mdasrafulmollasadek@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+    <!-- Second Row -->
+    <div class="row" style="margin-top: 40px;">
+      <a href="https://hikmah.net?referrer=mdasrafulmollasadek" style="margin-right: 14px;" target="_blank" title="Hikma"><i class="fas fa-book fa-2x"></i></a>
+      <a href="https://threads.net/@mdasrafulmollasadek" style="margin-right: 14px;" target="_blank" title="Threads"><i class="fas fa-at fa-2x"></i></a>
+      <a href="https://chessarena.com/profile/514976" style="margin-right: 14px;" target="_blank" title="Queen"><i class="fas fa-chess-queen fa-2x"></i></a>
+      <a href="https://join.skype.com/invite/wm5ph2OAQ700" style="margin-right: 14px;" target="_blank" title="Skype"><i class="fab fa-skype fa-2x"></i></a>
+      <a href="mailto:mdasrafulmollasadek@gmail.com" style="margin-right: 14px;" title="Email"><i class="fas fa-envelope fa-2x"></i></a>
     </div>
-
   </div>
+
 </body>
 </html>
-
-
