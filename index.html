@@ -24,7 +24,16 @@
       color: white;
     }
 
-    
+    #bg-video {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  z-index: -1;
+  object-fit: cover;
+  filter: brightness(0.6);
+}
     body::before {
       content: "";
       position: fixed;
@@ -91,7 +100,9 @@
   </style>
 </head>
 <body>
-  <img src="profile.jpg" alt="Profile Picture" class="profile-pic" />
+  <video autoplay muted loop playsinline id="bg-video">
+    <source src="your-video.mp4" type="video/mp4">
+  </video>
   <div class="bio">
     <h2>MD Asraful Molla Sadek</h2>
     <p style="color: #5b5353;">
