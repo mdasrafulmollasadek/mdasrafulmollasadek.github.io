@@ -6,23 +6,35 @@
   <title>MD Asraful Molla</title>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-   <link rel="stylesheet" href="style.css">
   <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
     body {
       font-family: Arial, sans-serif;
       text-align: right;
       padding: 40px;
+      color: white;
+      position: relative;
+      z-index: 0;
+    }
 
-    .bg-video {
-  position: fixed;
-  right: 0;
-  bottom: 0;
-  min-width: 100%;
-  min-height: 100%;
-  z-index: -1;
-  object-fit: cover;
-  filter: brightness(0.6);
-}
+  
+    #bg-video {
+      position: fixed;
+      top: 0;
+      left: 0;
+      min-width: 100%;
+      min-height: 100%;
+      object-fit: cover;
+      z-index: -2;
+      filter: brightness(0.4);
+    }
+
+
     body::before {
       content: "";
       position: fixed;
@@ -30,7 +42,7 @@
       left: 0;
       width: 100%;
       height: 110%;
-      background-color: rgba(40, 40, 40, 0.4);
+      background-color: rgba(40, 40, 40, 0.2);
       z-index: -1;
     }
 
@@ -43,16 +55,23 @@
       float: left;
       margin: 10px;
     }
+
     .bio {
       margin-bottom: 170px;
     }
+
+    .bio h2 {
+      color: black;
+    }
+
     .content {
-  color: black;
-  position: relative;
-  z-index: 1;
-  margin: 20px;
-  text-align: right;
-}
+      color: black;
+      position: relative;
+      z-index: 1;
+      margin: 20px;
+      text-align: right;
+    }
+
     .social-icons {
       display: flex;
       justify-content: center;
@@ -61,15 +80,18 @@
       font-size: 18px;
       margin-bottom: 37px;
     }
+
     .social-icons a {
-      color: red;
+      color: white;
       text-decoration: none;
       transition: transform 0.3s, color 0.3s;
     }
+
     .social-icons a:hover {
       transform: scale(1.2);
       color: green;
     }
+
     .follow-btn {
       background-color: #0077ff;
       color: white;
@@ -80,55 +102,49 @@
       cursor: pointer;
       transition: background-color 0.3s;
     }
-    .bio h2 {
-    color: black;
-  }
+
     .follow-btn:hover {
       background-color: #005fcc;
     }
   </style>
 </head>
 <body>
+
+  <!-- ✅ Background Video -->
   <video autoplay muted loop playsinline id="bg-video">
     <source src="your-video.mp4" type="video/mp4">
+
   </video>
+
+  <img src="profile.jpg" alt="Profile Picture" class="profile-pic" />
   <div class="bio">
     <h2>MD Asraful Molla Sadek</h2>
     <p style="color: #5b5353;">
-      <i><br><b>Sadek</b> use the <br> following social <br> media platforms,<br>except <strike>Facebook</strike>.</i></p>  
+      <i><br><b>Sadek</b> use the <br> following social <br> media platforms,<br>except <strike>Facebook</strike>.</i>
+    </p>  
   </div>
   <br>
-  <!-- Social Media Buttons Row -->
+
   <div class="social-icons">
-  <!-- First Row -->
- <div class="row" style="margin-top: 40px;">
-    <a href="https://t.me/mdasrafulmollasadek" target="_blank" style="margin-right: 14px;" title="Telegram"><i class="fab fa-telegram fa-2x"></i></a>
-   
-    <a href="https://instagram.com/mdasrafulmollasadek" style="margin-right: 14px;" target="_blank" title="Instagram"><i class="fab fa-instagram fa-2x"></i></a>
+    <!-- First Row -->
+    <div class="row" style="margin-top: 40px;">
+      <a href="https://t.me/mdasrafulmollasadek" target="_blank" style="margin-right: 14px;" title="Telegram"><i class="fab fa-telegram fa-2x"></i></a>
+      <a href="https://instagram.com/mdasrafulmollasadek" style="margin-right: 14px;" target="_blank" title="Instagram"><i class="fab fa-instagram fa-2x"></i></a>
+      <a href="blank" style="margin-right: 14px;" target="_blank" title="Facebook"><i class="fab fa-facebook-f fa-2x" style="color: yellow;"></i></a>
+      <a href="https://x.com/mdasrafulmollaS" style="margin-right: 14px;" target="_blank" title="X (Twitter)"><i class="fab fa-x-twitter fa-2x"></i></a>
+      <a href="https://pin.it/5hZLpJOTz" style="margin-right: 14px;" target="_blank" title="Pinterest"><i class="fab fa-pinterest fa-2x"></i></a>
+    </div>
 
-    <a href="blank" style="margin-right: 14px;" target="_blank" title="Facebook"><i class="fab fa-facebook-f fa-2x" style="color: yellow;"></i></a>
-    
-    <a href="https://x.com/mdasrafulmollaS" style="margin-right: 14px;" target="_blank" title="X (Twitter)">
-  <i class="fab fa-x-twitter fa-2x"></i></a>
-    
-    <a href="https://pin.it/5hZLpJOTz" style="margin-right: 14px;" target="_blank" title="Pinterest"><i class="fab fa-pinterest fa-2x"></i></a>
-    
- </div>
-    
-  <!-- Second Row -->
-  <div class="row" style="margin-top: 40px;">
-   <a href="https://hikmah.net?referrer=mdasrafulmollasadek" style="margin-right: 14px;" target="_blank" title="Hikma"><i class="fas fa-book fa-2x"></i></a>
-
-     <a href="https://threads.net/@mdasrafulmollasadek" style="margin-right: 14px;" target="_blank" title="Threads"><i class="fas fa-at fa-2x"></i></a>
-    
-    <a href="https://chessarena.com/profile/514976" style="margin-right: 14px;" target="_blank" title="Queen"><i class="fas fa-chess-queen fa-2x"></i></a>
-    
-     <a href="https://join.skype.com/invite/wm5ph2OAQ700" style="margin-right: 14px;" target="_blank" title="Skype"><i class="fab fa-skype fa-2x"></i></a>
-    
-    <a href="mailto:mdasrafulmollasadek@gmail.com" style="margin-right: 14px;" title="Email"><i class="fas fa-envelope fa-2x"></i></a>
-    
+    <!-- Second Row -->
+    <div class="row" style="margin-top: 40px;">
+      <a href="https://hikmah.net?referrer=mdasrafulmollasadek" style="margin-right: 14px;" target="_blank" title="Hikma"><i class="fas fa-book fa-2x"></i></a>
+      <a href="https://threads.net/@mdasrafulmollasadek" style="margin-right: 14px;" target="_blank" title="Threads"><i class="fas fa-at fa-2x"></i></a>
+      <a href="https://chessarena.com/profile/514976" style="margin-right: 14px;" target="_blank" title="Queen"><i class="fas fa-chess-queen fa-2x"></i></a>
+      <a href="https://join.skype.com/invite/wm5ph2OAQ700" style="margin-right: 14px;" target="_blank" title="Skype"><i class="fab fa-skype fa-2x"></i></a>
+      <a href="mailto:mdasrafulmollasadek@gmail.com" style="margin-right: 14px;" title="Email"><i class="fas fa-envelope fa-2x"></i></a>
+    </div>
   </div>
-</div>
-  
+
 </body>
 </html>
+
