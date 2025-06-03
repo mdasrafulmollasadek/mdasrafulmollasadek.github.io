@@ -65,6 +65,35 @@
       color: #ddd;
       text-align: right;
     }
+    .breaking-news-container {
+  width: 100%;
+  overflow: hidden;
+  background-color: black;
+  padding: 10px 0;
+  position: relative;
+  border-top: 2px solid red;
+  border-bottom: 2px solid red;
+}
+
+.breaking-news-text {
+  display: inline-block;
+  white-space: nowrap;
+  color: yellow;
+  font-weight: bold;
+  font-size: 18px;
+  animation: scroll-left 15s linear infinite;
+}
+
+@keyframes scroll-left {
+  0% {
+    transform: translateX(100%);
+  }
+
+  100% {
+    transform: translateX(-100%);
+  }
+
+
 
     .social-icons {
       display: flex;
@@ -128,6 +157,12 @@
       <h2>MD Asraful Molla (<i>Sadek</i>)</h2>
       <p><i> আমি মানুষ </i></p>
     </div>
+    <div class="breaking-news-container">
+  <div class="breaking-news-text">
+    ⚡ আমি যদি আপনার কাছে কোনো পাপ করে থাকি, আমি আন্তরিকভাবে দুঃখিত, আমাকে ক্ষমা করবেন ⚡
+  </div>
+</div>
+
 
     <!-- Social Media Icons -->
     <div class="social-icons">
