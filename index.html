@@ -8,146 +8,98 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html, body {
-      height: 100%;
-      font-family: Arial, sans-serif;
-      overflow: hidden;
-      color: white;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body { height: 100%; font-family: Arial, sans-serif; overflow: hidden; color: white; }
 
     #bg-video {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      object-fit: cover;
-      z-index: -2;
+      position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+      object-fit: cover; z-index: -2;
     }
 
     .overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.5);
-      z-index: -1;
+      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+      background-color: rgba(0, 0, 0, 0.5); z-index: -1;
     }
 
     .container {
-      text-align: center;
-      padding: 40px;
+      text-align: center; padding: 40px;
     }
 
     .profile-pic {
-      width: 100px;
-      height: 100px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 2px solid yellow;
-      margin-bottom: 10px;
+      width: 100px; height: 100px; border-radius: 50%; object-fit: cover;
+      border: 2px solid yellow; margin-bottom: 10px;
     }
 
-    .bio h2 {
-      margin-bottom: 10px;
-      color: #fff;
-    }
-
-    .bio p {
-      margin-bottom: 20px;
-      color: #898282;
-      text-align: right;
-    }
+    .bio h2 { margin-bottom: 10px; color: #fff; }
+    .bio p { margin-bottom: 20px; color: #898282; text-align: right; }
 
     .breaking-news-container {
-      width: 100%;
-      overflow: hidden;
-      background-color: rgba(0, 0, 0, 0.5);
-      padding: 10px 0;
-      position: relative;
-      border-top: 2px solid rgba(255, 255, 255, 0.15);
-      border-bottom: 2px solid rgba(0, 0, 0, 0.5);
+      width: 100%; overflow: hidden; background-color: rgba(0, 0, 0, 0.5);
+      padding: 10px 0; position: relative; border-top: 2px solid rgba(255,255,255,0.15);
+      border-bottom: 2px solid rgba(0,0,0,0.5);
     }
 
     .breaking-news-text {
-      display: inline-block;
-      white-space: nowrap;
-      color: yellow;
-      font-weight: bold;
-      font-size: 16px;
-      animation: scroll-left 50s linear infinite;
+      display: inline-block; white-space: nowrap; color: yellow;
+      font-weight: bold; font-size: 16px;
+      animation: scroll-left 30s linear infinite;
     }
 
     @keyframes scroll-left {
-      0% {
-        transform: translateX(100%);
-      }
-
-      100% {
-        transform: translateX(-100%);
-      }
+      0% { transform: translateX(100%); }
+      100% { transform: translateX(-100%); }
     }
 
     .social-icons {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 15px;
-      margin-top: 143px;
+      display: flex; flex-wrap: wrap; justify-content: center;
+      gap: 15px; margin-top: 30px;
     }
 
     .icon {
-      width: 50px;
-      height: 50px;
-      background-color: rgba(255, 255, 255, 0.15);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      text-decoration: none !important;
-      justify-content: center;
+      width: 50px; height: 50px; background-color: rgba(255, 255, 255, 0.15);
+      border-radius: 50%; display: flex; align-items: center;
+      text-decoration: none !important; justify-content: center;
       transition: background 0.3s, transform 0.3s;
     }
 
-    .icon i {
-      color: #fff;
-      font-size: 24px;
-    }
+    .icon i { color: #fff; font-size: 24px; }
+    .icon:hover { background-color: rgba(255, 255, 255, 0.3); transform: scale(1.1); }
 
-    .icon:hover {
-      background-color: rgba(255, 255, 255, 0.3);
-      transform: scale(1.1);
-    }
-
-    .social-row {
-      display: flex;
-      justify-content: center;
-      gap: 14px;
-      margin: 15px 0;
-    }
-
-    .time-date-container {
-      margin-top: 20px;
-      font-size: 18px;
-      color: yellow;
-      font-weight: bold;
-    }
+    .social-row { display: flex; justify-content: center; gap: 14px; margin: 15px 0; }
 
     @media screen and (max-width: 600px) {
-      .icon {
-        width: 45px;
-        height: 45px;
-      }
+      .icon { width: 45px; height: 45px; }
+      .icon i { font-size: 24px; }
+    }
 
-      .icon i {
-        font-size: 24px;
-      }
+    /* Advanced Story Section */
+    .story-section {
+      display: flex; justify-content: center; gap: 10px;
+      margin-top: 20px; overflow-x: auto; padding-bottom: 10px;
+    }
+
+    .story-thumbnail {
+      width: 70px; height: 70px; border-radius: 50%; border: 3px solid yellow;
+      overflow: hidden; cursor: pointer; transition: transform 0.3s;
+    }
+
+    .story-thumbnail:hover { transform: scale(1.1); }
+    .story-thumbnail img { width: 100%; height: 100%; object-fit: cover; }
+
+    .story-modal {
+      display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+      background-color: rgba(0, 0, 0, 0.85); z-index: 9999;
+      display: flex; align-items: center; justify-content: center;
+    }
+
+    .story-modal img {
+      max-width: 90%; max-height: 80%; border: 5px solid yellow;
+      border-radius: 15px; animation: fadeIn 1s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
     }
   </style>
 </head>
@@ -162,56 +114,67 @@
     <img src="profile.jpg" alt="Profile Picture" class="profile-pic">
     <div class="bio">
       <h2>MD Asraful Molla (<i>Sadek</i>)</h2>
-      <p><i> Sadek use the<br>
-        following social<br>
-        media platforms. </i></p>
-    </div>
+      <p><i> Sadek use the<br>following social<br>media platforms. </i></p>
 
-    <!-- Time & Date -->
-    <div class="time-date-container" id="time-date"></div>
-
-    <!-- Social Media Icons -->
-    <div class="social-icons">
-      <!-- Row 1 -->
-      <div class="social-row">
-        <a href="https://t.me/mdasrafulmollasadek" class="icon" title="Telegram" target="_blank"><i class="fab fa-telegram"></i></a>
-        <a href="https://instagram.com/mdasrafulmollasadek" class="icon" title="Instagram" target="_blank"><i class="fab fa-instagram"></i></a>
-        <a href="#" class="icon" title="Youtube" target="_blank"><i class="fab fa-youtube" style="color: yellow;"></i></a>
-        <a href="https://x.com/mdasrafulmollaS" class="icon" title="X" target="_blank"><i class="fab fa-x-twitter"></i></a>
-        <a href="#" class="icon" title="Facebook" target="_blank"><i class="fab fa-facebook-f" style="color: yellow;"></i></a>
-        <a href="https://pin.it/5hZLpJOTz" class="icon" title="Pinterest" target="_blank"><i class="fab fa-pinterest"></i></a>
+      <div class="story-section">
+        <div class="story-thumbnail" onclick="openStory('story1.jpg')">
+          <img src="story1.jpg" alt="Story 1">
+        </div>
+        <div class="story-thumbnail" onclick="openStory('story2.jpg')">
+          <img src="story2.jpg" alt="Story 2">
+        </div>
+        <div class="story-thumbnail" onclick="openStory('story3.jpg')">
+          <img src="story3.jpg" alt="Story 3">
+        </div>
       </div>
 
-      <!-- Row 2 -->
-      <div class="social-row">
-        <a href="https://hikmah.net?referrer=mdasrafulmollasadek" class="icon" title="Hikmah" target="_blank"><i class="fas fa-book"></i></a>
-        <a href="https://threads.net/@mdasrafulmollasadek" class="icon" title="Threads" target="_blank"><i class="fas fa-at"></i></a>
-        <a href="https://chessarena.com/profile/514976" class="icon" title="Chess" target="_blank"><i class="fas fa-chess"></i></a>
-        <a href="#" class="icon" title="LinkedIn" target="_blank"><i class="fab fa-linkedin-in" style="color: yellow;"></i></a>
-        <a href="https://join.skype.com/invite/wm5ph2OAQ700" class="icon" title="Skype" target="_blank"><i class="fab fa-skype"></i></a>
-        <a href="mailto:mdasrafulmollasadek@gmail.com" class="icon" title="Email"><i class="fas fa-envelope"></i></a>
+      <div class="social-icons">
+        <div class="social-row">
+          <a href="https://t.me/mdasrafulmollasadek" class="icon" target="_blank"><i class="fab fa-telegram"></i></a>
+          <a href="https://instagram.com/mdasrafulmollasadek" class="icon" target="_blank"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="icon" target="_blank"><i class="fab fa-youtube" style="color: yellow;"></i></a>
+          <a href="https://x.com/mdasrafulmollaS" class="icon" target="_blank"><i class="fab fa-x-twitter"></i></a>
+          <a href="#" class="icon" target="_blank"><i class="fab fa-facebook-f" style="color: yellow;"></i></a>
+          <a href="https://pin.it/5hZLpJOTz" class="icon" target="_blank"><i class="fab fa-pinterest"></i></a>
+        </div>
+        <div class="social-row">
+          <a href="https://hikmah.net?referrer=mdasrafulmollasadek" class="icon" target="_blank"><i class="fas fa-book"></i></a>
+          <a href="https://threads.net/@mdasrafulmollasadek" class="icon" target="_blank"><i class="fas fa-at"></i></a>
+          <a href="https://chessarena.com/profile/514976" class="icon" target="_blank"><i class="fas fa-chess"></i></a>
+          <a href="#" class="icon" target="_blank"><i class="fab fa-linkedin-in" style="color: yellow;"></i></a>
+          <a href="https://join.skype.com/invite/wm5ph2OAQ700" class="icon" target="_blank"><i class="fab fa-skype"></i></a>
+          <a href="mailto:mdasrafulmollasadek@gmail.com" class="icon"><i class="fas fa-envelope"></i></a>
+        </div>
       </div>
-    </div>
 
-    <!-- Breaking News -->
-    <div class="breaking-news-container">
-      <div class="breaking-news-text">
-        ⚡আমি মানুষ, (স্বজ্ঞানে বা অজ্ঞানে) ভুল হতেই পারে। তাই আমার ব্যবহার যদি আপনাকে কোনোক্রমে বিন্দুমাত্র কষ্টও দিয়ে থাকে, (আপনার বিশাল হৃদয়টা দ্বারা) চোখ বন্ধ করে হলেও আমাকে (আল্লারওয়াস্তে) ক্ষমা করে দিয়েন।⚡
-        [ক্ষমা চাওয়া লজ্জার নয়, বরং সাহসিকতার প্রতীক ]
+      <div class="breaking-news-container">
+        <div class="breaking-news-text">
+          ⚡আমি মানুষ, (স্বজ্ঞানে বা অজ্ঞানে) ভুল হতেই পারে... আমাকে ক্ষমা করে দিয়েন।⚡ [ক্ষমা চাওয়া লজ্জার নয়, বরং সাহসিকতার প্রতীক ]
+        </div>
       </div>
     </div>
   </div>
 
+  <!-- Story Modal -->
+  <div id="storyModal" class="story-modal" onclick="closeStory()">
+    <img id="storyImage" src="" alt="Story View">
+  </div>
+
   <script>
-    function updateDateTime() {
-      const now = new Date();
-      const options = { weekday: 'long', year: 'numeric', month: 'short', day: 'numeric' };
-      const date = now.toLocaleDateString('bn-BD', options);
-      const time = now.toLocaleTimeString('bn-BD');
-      document.getElementById('time-date').innerHTML = `📅 ${date} | ⏰ ${time}`;
+    function openStory(src) {
+      document.getElementById('storyImage').src = src;
+      document.getElementById('storyModal').style.display = 'flex';
+
+      // Optional: auto-close after 5 seconds
+      setTimeout(() => {
+        closeStory();
+      }, 5000);
     }
-    setInterval(updateDateTime, 1000);
-    updateDateTime();
+
+    function closeStory() {
+      document.getElementById('storyModal').style.display = 'none';
+    }
   </script>
 </body>
 </html>
+
