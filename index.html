@@ -1,105 +1,184 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>MD Asraful Molla Sadek</title>
   <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" as="style">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
 
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    html, body { height: 100%; font-family: Arial, sans-serif; overflow: hidden; color: white; }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+      font-family: Arial, sans-serif;
+      overflow-x: hidden;
+      color: white;
+      background: black;
+    }
 
     #bg-video {
-      position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
-      object-fit: cover; z-index: -2;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
+      z-index: -2;
     }
 
     .overlay {
-      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-      background-color: rgba(0, 0, 0, 0.5); z-index: -1;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: -1;
     }
 
     .container {
-      text-align: center; padding: 40px;
+      text-align: center;
+      padding: 40px;
     }
 
     .profile-pic {
-      width: 100px; height: 100px; border-radius: 50%; object-fit: cover;
-      border: 2px solid yellow; margin-bottom: 10px;
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid yellow;
+      margin-bottom: 10px;
     }
 
-    .bio h2 { margin-bottom: 10px; color: #fff; }
-    .bio p { margin-bottom: 20px; color: #898282; text-align: right; }
-
-    .breaking-news-container {
-      width: 100%; overflow: hidden; background-color: rgba(0, 0, 0, 0.5);
-      padding: 10px 0; position: relative; border-top: 2px solid rgba(255,255,255,0.15);
-      border-bottom: 2px solid rgba(0,0,0,0.5);
+    .bio h2 {
+      margin-bottom: 10px;
+      color: #fff;
     }
 
-    .breaking-news-text {
-      display: inline-block; white-space: nowrap; color: yellow;
-      font-weight: bold; font-size: 16px;
-      animation: scroll-left 30s linear infinite;
-    }
-
-    @keyframes scroll-left {
-      0% { transform: translateX(100%); }
-      100% { transform: translateX(-100%); }
+    .bio p {
+      margin-bottom: 20px;
+      color: #898282;
+      text-align: right;
     }
 
     .social-icons {
-      display: flex; flex-wrap: wrap; justify-content: center;
-      gap: 15px; margin-top: 30px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+      margin-top: 30px;
     }
 
     .icon {
-      width: 50px; height: 50px; background-color: rgba(255, 255, 255, 0.15);
-      border-radius: 50%; display: flex; align-items: center;
-      text-decoration: none !important; justify-content: center;
+      width: 50px;
+      height: 50px;
+      background-color: rgba(255, 255, 255, 0.15);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      text-decoration: none !important;
+      justify-content: center;
       transition: background 0.3s, transform 0.3s;
     }
 
-    .icon i { color: #fff; font-size: 24px; }
-    .icon:hover { background-color: rgba(255, 255, 255, 0.3); transform: scale(1.1); }
-
-    .social-row { display: flex; justify-content: center; gap: 14px; margin: 15px 0; }
-
-    @media screen and (max-width: 600px) {
-      .icon { width: 45px; height: 45px; }
-      .icon i { font-size: 24px; }
+    .icon i {
+      color: #fff;
+      font-size: 24px;
     }
 
-    /* Advanced Story Section */
+    .icon:hover {
+      background-color: rgba(255, 255, 255, 0.3);
+      transform: scale(1.1);
+    }
+
+    .social-row {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      margin: 15px 0;
+    }
+
+    .breaking-news-container {
+      width: 100%;
+      overflow: hidden;
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 10px 0;
+      position: relative;
+      border-top: 2px solid rgba(255, 255, 255, 0.15);
+      border-bottom: 2px solid rgba(0, 0, 0, 0.5);
+      margin-top: 20px;
+    }
+
+    .breaking-news-text {
+      display: inline-block;
+      white-space: nowrap;
+      color: yellow;
+      font-weight: bold;
+      font-size: 16px;
+      animation: scroll-left 50s linear infinite;
+    }
+
+    @keyframes scroll-left {
+      0% {
+        transform: translateX(100%);
+      }
+      100% {
+        transform: translateX(-100%);
+      }
+    }
+
     .story-section {
-      display: flex; justify-content: center; gap: 10px;
-      margin-top: 20px; overflow-x: auto; padding-bottom: 10px;
+      margin-top: 30px;
     }
 
     .story-thumbnail {
-      width: 70px; height: 70px; border-radius: 50%; border: 3px solid yellow;
-      overflow: hidden; cursor: pointer; transition: transform 0.3s;
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      border: 3px solid yellow;
+      cursor: pointer;
+      object-fit: cover;
     }
-
-    .story-thumbnail:hover { transform: scale(1.1); }
-    .story-thumbnail img { width: 100%; height: 100%; object-fit: cover; }
 
     .story-modal {
-      display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-      background-color: rgba(0, 0, 0, 0.85); z-index: 9999;
-      display: flex; align-items: center; justify-content: center;
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.9);
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
     }
 
-    .story-modal img {
-      max-width: 90%; max-height: 80%; border: 5px solid yellow;
-      border-radius: 15px; animation: fadeIn 1s ease;
+    .story-modal img.story-full {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 12px;
     }
 
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
+    @media screen and (max-width: 600px) {
+      .icon {
+        width: 45px;
+        height: 45px;
+      }
+
+      .icon i {
+        font-size: 20px;
+      }
+
+      .story-thumbnail {
+        width: 70px;
+        height: 70px;
+      }
     }
   </style>
 </head>
@@ -111,23 +190,18 @@
   <div class="overlay"></div>
 
   <div class="container">
-    <img src="profile.jpg" alt="Profile Picture" class="profile-pic">
+    <img src="profile.jpg" alt="Profile Picture" class="profile-pic" />
     <div class="bio">
       <h2>MD Asraful Molla (<i>Sadek</i>)</h2>
-      <p><i> Sadek use the<br>following social<br>media platforms. </i></p>
+      <p><i> Sadek use the<br> following social<br> media platforms. </i></p>
 
+      <!-- Story Section -->
       <div class="story-section">
-        <div class="story-thumbnail" onclick="openStory('story1.jpg')">
-          <img src="profile.jpg" alt="Story 1">
-        </div>
-        <div class="story-thumbnail" onclick="openStory('story2.jpg')">
-          <img src="profile.jpg" alt="Story 2">
-        </div>
-        <div class="story-thumbnail" onclick="openStory('story3.jpg')">
-          <img src="profile.jpg" alt="Story 3">
-        </div>
+        <h3>📸 My Story</h3>
+        <img src="story-image.jpg" alt="Story" class="story-thumbnail" onclick="openStoryViewer()" />
       </div>
 
+      <!-- Social Icons -->
       <div class="social-icons">
         <div class="social-row">
           <a href="https://t.me/mdasrafulmollasadek" class="icon" target="_blank"><i class="fab fa-telegram"></i></a>
@@ -147,32 +221,43 @@
         </div>
       </div>
 
+      <!-- Breaking News -->
       <div class="breaking-news-container">
         <div class="breaking-news-text">
-          ⚡আমি মানুষ, (স্বজ্ঞানে বা অজ্ঞানে) ভুল হতেই পারে... আমাকে ক্ষমা করে দিয়েন।⚡ [ক্ষমা চাওয়া লজ্জার নয়, বরং সাহসিকতার প্রতীক ]
+          ⚡আমি মানুষ, (স্বজ্ঞানে বা অজ্ঞানে) ভুল হতেই পারে। তাই আমার ব্যবহার যদি আপনাকে কোনোক্রমে বিন্দুমাত্র কষ্টও দিয়ে থাকে, (আপনার বিশাল হৃদয়টা দ্বারা) চোখ বন্ধ করে হলেও আমাকে (আল্লারওয়াস্তে) ক্ষমা করে দিয়েন।⚡ [ক্ষমা চাওয়া লজ্জার নয়, বরং সাহসিকতার প্রতীক]
         </div>
       </div>
     </div>
   </div>
 
   <!-- Story Modal -->
-  <div id="storyModal" class="story-modal" onclick="closeStory()">
-    <img id="storyImage" src="" alt="Story View">
+  <div id="storyViewer" class="story-modal" onclick="closeStoryViewer()">
+    <img src="story-image.jpg" alt="Full Story" class="story-full" />
   </div>
 
+  <!-- JavaScript -->
   <script>
-    function openStory(src) {
-      document.getElementById('storyImage').src = src;
-      document.getElementById('storyModal').style.display = 'flex';
-
-      // Optional: auto-close after 5 seconds
-      setTimeout(() => {
-        closeStory();
-      }, 5000);
+    function openStoryViewer() {
+      document.getElementById("storyViewer").style.display = "flex";
     }
 
-    function closeStory() {
-      document.getElementById('storyModal').style.display = 'none';
+    function closeStoryViewer() {
+      document.getElementById("storyViewer").style.display = "none";
+    }
+
+    // 24 ঘণ্টা পরে Story Hide
+    const storyKey = "myStoryTime";
+    const now = Date.now();
+    const expireTime = 24 * 60 * 60 * 1000; // 24 hours
+
+    if (!localStorage.getItem(storyKey)) {
+      localStorage.setItem(storyKey, now);
+    } else {
+      const timePassed = now - parseInt(localStorage.getItem(storyKey));
+      if (timePassed > expireTime) {
+        const storyElement = document.querySelector(".story-section");
+        if (storyElement) storyElement.style.display = "none";
+      }
     }
   </script>
 </body>
