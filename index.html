@@ -3,122 +3,235 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Story Viewer</title>
+  <title>MD Asraful Molla Sadek</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <style>
-    .story-container {
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body {
+      height: 100%;
+      font-family: Arial, sans-serif;
+      color: white;
+      overflow: hidden;
+    }
+    #bg-video {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
+      z-index: -2;
+    }
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: -1;
+    }
+    .container {
+      text-align: center;
+      padding: 30px 10px;
+    }
+    .profile-pic {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid yellow;
+      margin-bottom: 10px;
+    }
+    .bio h2 { margin-bottom: 10px; color: #fff; }
+    .bio p { margin-bottom: 10px; color: #ccc; text-align: right; }
+
+    .story-bar {
       display: flex;
-      gap: 10px;
-      margin-top: 20px;
-      flex-wrap: wrap;
+      justify-content: center;
+      gap: 25px;
+      margin-top: 140px;
     }
-    .story {
-      width: 150px;
-      height: 250px;
-      background-color: #ddd;
+    .story-thumbnail {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      border: 2px solid red;
+      object-fit: cover;
       cursor: pointer;
-      border-radius: 10px;
-      background-size: cover;
-      background-position: center;
     }
-    #storyViewer {
+    .story-viewer {
       display: none;
       position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: rgba(0,0,0,0.9);
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0,0,0,0.95);
       justify-content: center;
       align-items: center;
-      z-index: 9999;
+      z-index: 999;
     }
-    #storyImage {
+    .story-viewer img {
       max-width: 90%;
       max-height: 90%;
-      border-radius: 20px;
-      box-shadow: 0 0 15px #fff;
+      border-radius: 10px;
+    }
+
+    .social-icons {
+      display: flex;
+      flex-direction: column;
+      gap: 11px;
+      align-items: center;
+      margin-top: 15px;
+    }
+    .icon-row {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+    }
+    .icon {
+      width: 50px;
+      height: 50px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      transition: all 0.3s;
+    }
+    .icon i {
+      font-size: 22px;
+      color: white;
+    }
+    .icon:hover {
+      transform: scale(1.1);
+      background-color: rgba(255,255,255,0.25);
+    }
+
+    .breaking-news-container {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      background: rgba(0,0,0,0.4);
+      overflow: hidden;
+      border-top: 2px solid yellow;
+    }
+    .breaking-news-text {
+      display: inline-block;
+      white-space: nowrap;
+      color: yellow;
+      padding: 10px;
+      font-weight: bold;
+      font-size: 16px;
+      animation: scroll-left 50s linear infinite;
+    }
+    @keyframes scroll-left {
+      from { transform: translateX(100%); }
+      to { transform: translateX(-100%); }
     }
   </style>
 </head>
 <body>
 
-<h2>All Stories</h2>
-<div class="story-container">
-  <div class="story" style="background-image:url('profile.jpg')" onclick="openStoryViewer(0)"></div>
-  <div class="story" style="background-image:url('story2.jpg')" onclick="openStoryViewer(1)"></div>
-  <div class="story" style="background-image:url('story3.jpg')" onclick="openStoryViewer(2)"></div>
-  <div class="story" style="background-image:url('story4.jpg')" onclick="openStoryViewer(3)"></div>
+<video autoplay muted loop playsinline id="bg-video">
+  <source src="background-video.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+<div class="overlay"></div>
+
+<div class="container">
+  <img src="profile.jpg" alt="Profile Picture" class="profile-pic">
+  <div class="bio">
+    <h2>MD Asraful Molla (<i>Sadek</i>)</h2>
+    <p><i>Sadek use the<br> following social <br>media platforms.</i></p>
+  </div>
+
+  <!-- STORIES -->
+  <div class="story-bar">
+    <img src="profile.jpg" alt="Story 1" class="story-thumbnail" onclick="openStoryViewer(0)">
+    <img src="story2.jpg" alt="Story 2" class="story-thumbnail" onclick="openStoryViewer(1)">
+    <img src="profile.jpg" alt="Story 3" class="story-thumbnail" onclick="openStoryViewer(2)">
+    <img src="profile.jpg" alt="Story 4" class="story-thumbnail" onclick="openStoryViewer(3)">
+  </div>
+
+  <!-- SOCIAL ICONS -->
+  <div class="social-icons">
+    <div class="icon-row">
+      <a href="https://t.me/mdasrafulmollasadek" class="icon" target="_blank"><i class="fab fa-telegram"></i></a>
+      <a href="https://instagram.com/mdasrafulmollasadek" class="icon" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="#" class="icon" target="_blank"><i class="fab fa-youtube" style="color: yellow;"></i></a>
+      <a href="https://x.com/mdasrafulmollaS" class="icon" target="_blank"><i class="fab fa-x-twitter"></i></a>
+      <a href="#" class="icon" target="_blank"><i class="fab fa-facebook-f" style="color: yellow;"></i></a>
+      <a href="https://pin.it/5hZLpJOTz" class="icon" target="_blank"><i class="fab fa-pinterest"></i></a>
+    </div>
+    <div class="icon-row">
+      <a href="https://hikmah.net?referrer=mdasrafulmollasadek" class="icon" title="Hikmah" target="_blank"><i class="fas fa-book"></i></a>
+      <a href="https://threads.net/@mdasrafulmollasadek" class="icon" target="_blank"><i class="fab fa-threads"></i></a>
+      <a href="https://chessarena.com/profile/514976" class="icon" title="Chess" target="_blank"><i class="fas fa-chess"></i></a>
+      <a href="#" class="icon" target="_blank"><i class="fab fa-linkedin" style="color: yellow;"></i></a>
+      <a href="https://join.skype.com/invite/wm5ph2OAQ700" class="icon" target="_blank"><i class="fab fa-skype"></i></a>
+      <a href="mailto:mdasrafulmollasadek@gmail.com" class="icon" target="_blank"><i class="fas fa-envelope"></i></a>
+    </div>
+  </div>
 </div>
 
-<div id="storyViewer">
-  <img id="storyImage" src="" alt="Story"/>
+<!-- Breaking news -->
+<div class="breaking-news-container">
+  <div class="breaking-news-text">⚡আমি মানুষ, (স্বজ্ঞানে বা অজ্ঞানে) ভুল হতেই পারে। তাই আমার ব্যবহার যদি আপনাকে কোনোক্রমে বিন্দুমাত্র কষ্টও দিয়ে থাকে, (আপনার বিশাল হৃদয়টা দ্বারা) চোখ বন্ধ করে হলেও আমাকে (আল্লারওয়াস্তে) ক্ষমা করে দিয়েন।⚡
+[ক্ষমা চাওয়া লজ্জার নয়, বরং সাহসিকতার প্রতীক ]
+  </div>
 </div>
 
-<!-- Firebase SDKs -->
-<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js"></script>
+<!-- Story Viewer -->
+<div class="story-viewer" id="storyViewer">
+  <img src="story1.jpg" alt="Full Story" id="storyImage" />
+</div>
 
-<script>
-  // ✅ Replace with your own Firebase config
+<!-- Firebase SDK -->
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+  import { getDatabase, ref, update, increment } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js";
+  
   const firebaseConfig = {
-    apiKey: "YOUR_API_KEY_HERE",
-    authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
-    databaseURL: "https://asraful-story-tracker-default-rtdb.firebaseio.com",
-    projectId: "asraful-story-tracker",
-    storageBucket: "YOUR_PROJECT_ID.appspot.com",
-    messagingSenderId: "YOUR_SENDER_ID",
-    appId: "YOUR_APP_ID_HERE"
+  apiKey: "AIzaSyCehNxLitq3a8gR1a85ix35d502Q0uawfE",
+  authDomain: "asraful-story-tracker.firebaseapp.com",
+  databaseURL: "https://asraful-story-tracker-default-rtdb.firebaseio.com",
+  projectId: "asraful-story-tracker",
+  storageBucket: "asraful-story-tracker.firebasestorage.app",
+  messagingSenderId: "332612873776",
+  appId: "1:332612873776:web:a5e5999804c185cede07f5",
+  measurementId: "G-721G4XYSMG"
+};
+
+  const app = initializeApp(firebaseConfig);
+  const db = getDatabase(app);
+
+  window.trackStoryView = function(storyId) {
+    const storyRef = ref(db, 'stories/' + storyId);
+    update(storyRef, { views: increment(1) });
   };
+</script>
 
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
-  const db = firebase.database();
-
-  const stories = [
-    "profile.jpg",
-    "story2.jpg",
-    "story3.jpg",
-    "story4.jpg"
-  ];
-  const storyNames = ["profile.jpg", "Story 2", "Story 3", "Story 4"];
-
-  async function getUserIP() {
-    try {
-      const res = await fetch('https://api.ipify.org?format=json');
-      const data = await res.json();
-      return data.ip.replace(/\./g, '_');
-    } catch (e) {
-      return 'unknown_ip';
-    }
-  }
-
-  async function trackStoryView(storyName) {
-    const ip = await getUserIP();
-    const timestamp = new Date().toISOString();
-    const viewerRef = db.ref('stories/' + storyName + '/views/ip_' + ip);
-
-    viewerRef.once('value', snapshot => {
-      if (!snapshot.exists()) {
-        db.ref('stories/' + storyName + '/totalViews').transaction(current => (current || 0) + 1);
-      }
-
-      viewerRef.set({
-        ip: ip.replace(/_/g, '.'),
-        timestamp: timestamp,
-        loggedIn: false
-      });
-    });
-  }
+<!-- Story Scripts -->
+<script>
+  const stories = ["profile.jpg", "story2.jpg", "profile.jpg", "profile.jpg"];
+  let currentIndex = 0;
 
   function openStoryViewer(index) {
+    currentIndex = index;
     const viewer = document.getElementById('storyViewer');
     const img = document.getElementById('storyImage');
-    img.src = stories[index];
+    img.src = stories[currentIndex];
     viewer.style.display = 'flex';
 
-    trackStoryView(storyNames[index]);
+    // Firebase View Tracker
+    trackStoryView("story" + (index + 1));
 
     setTimeout(() => {
       viewer.style.display = 'none';
-    }, 10000); // Show for 10s
+    }, 10000);
   }
 
   document.getElementById('storyViewer').addEventListener('click', () => {
@@ -128,4 +241,3 @@
 
 </body>
 </html>
-
